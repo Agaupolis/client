@@ -1,0 +1,90 @@
+@use "../../styles/index.scss";
+
+.Background {
+    position: fixed;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1vh);
+    min-width: 100vw;
+    min-height: 100vh;
+    transition: all 0.5s ease;
+}
+.Wrapper {
+    position: fixed;
+    z-index: 5;
+    background-color: index.$primary-color;
+    box-shadow: 0px 0px 0px 3px index.$secondary-color inset;
+    border-left: 0px;
+    border-radius: 0px 20px 20px 0px;
+    width: 20vw;
+    height: 100vh;
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .Close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        scale: 1.5;
+        transition: transform 0.2s ease;
+        cursor: pointer;
+        &:hover {
+            transform: translateY(3px);
+        }
+    }
+    .pfp {
+        border-radius: 50%;
+        $diameter: 130px;
+        width: $diameter;
+        height: $diameter;
+        margin-top: 8vh;
+    }
+    .Name {
+        font-size: 2.2em;
+        font-weight: 500;
+        opacity: 0.7;
+        margin-top: 0.3em;
+        color: index.$contrast-color;
+    }
+    .role {
+        color: index.$secondary-color;
+        font-weight: 500;
+        margin-bottom: 2vh;
+    }
+    .Nav1 {
+        width: 65%;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        label {
+            font-size: 1.75em;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            opacity: 0.8;
+            color: index.$contrast-color;
+            &:hover {
+                color: index.$secondary-color;
+            }
+        }
+    }
+    .Nav2 {
+        width: 65%;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        label {
+            font-size: 1.5em;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            opacity: 0.8;
+            color: index.$contrast-color;
+            margin: 15px;
+            &:hover {
+                color: index.$secondary-color;
+            }
+        }
+    }
+}

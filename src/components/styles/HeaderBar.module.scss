@@ -1,0 +1,33 @@
+.Wrapper {
+    max-width: 100%;
+    height: 65px;
+    margin: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 15px;
+}
+
+.LeftElements {
+    display: flex;
+    img {
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+
+.RightElements {
+    display: flex;
+    flex-direction: row-reverse;
+    img {
+        margin: 0px 5px;
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}

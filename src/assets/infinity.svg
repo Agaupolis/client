@@ -1,0 +1,30 @@
+<svg width="1849" height="925" viewBox="0 0 1849 925" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M231.125 231.125C358.772 103.478 565.728 103.478 693.375 231.125L924.5 462.25L693.375 693.375C565.728 821.022 358.772 821.022 231.125 693.375V693.375C103.478 565.728 103.478 358.772 231.125 231.125V231.125Z" stroke="#E8B923" stroke-width="29"/>
+<path d="M1617.88 693.375C1490.23 821.022 1283.27 821.022 1155.62 693.375L924.5 462.25L1155.63 231.125C1283.27 103.478 1490.23 103.478 1617.88 231.125V231.125C1745.52 358.772 1745.52 565.728 1617.88 693.375V693.375Z" stroke="#E8B923" stroke-width="29"/>
+<g filter="url(#filter0_f_225_34)">
+<rect x="528" y="194" width="794" height="202" rx="101" fill="#070A14"/>
+</g>
+<g filter="url(#filter1_f_225_34)">
+<rect x="670" y="381" width="541" height="172" rx="86" fill="#070A14"/>
+</g>
+<g filter="url(#filter2_f_225_34)">
+<rect x="674" y="578" width="502" height="172" rx="86" fill="#070A14"/>
+</g>
+<defs>
+<filter id="filter0_f_225_34" x="468.8" y="134.8" width="912.4" height="320.4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="29.6" result="effect1_foregroundBlur_225_34"/>
+</filter>
+<filter id="filter1_f_225_34" x="610.8" y="321.8" width="659.4" height="290.4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="29.6" result="effect1_foregroundBlur_225_34"/>
+</filter>
+<filter id="filter2_f_225_34" x="614.8" y="518.8" width="620.4" height="290.4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="29.6" result="effect1_foregroundBlur_225_34"/>
+</filter>
+</defs>
+</svg>

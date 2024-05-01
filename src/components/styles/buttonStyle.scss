@@ -1,0 +1,78 @@
+@use "../../styles/index.scss";
+
+.NavButtons {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    ul {
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        width: 20vw;
+        li {
+            color: white;
+            opacity: 0.7;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            &:hover {
+                transform: translateY(5px);
+            }
+        }
+        .Active {
+            opacity: 1;
+            background-color: rgba(255, 255, 255, 0.342);
+            border-radius: 50px;
+            color: white;
+            &:hover {
+                transform: translateY(0px);
+            }
+        }
+    }
+}
+
+.nav-opened {
+    position: fixed;
+    left: 0px;
+    z-index: 5;
+    transition: 500ms;
+}
+
+.nav-closed {
+    position: fixed;
+    left: -500px;
+    z-index: 5;
+    transition: 500ms;
+    animation: close 0.5s ease 0ms 1 forwards;
+}
+
+.background-opened {
+    position: fixed;
+    z-index: 4;
+    opacity: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1vh);
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+.background-closed {
+    position: fixed;
+    z-index: 4;
+    opacity: 0%;
+    animation: close 0.5s ease 0ms 1 forwards;
+}
+
+@keyframes close {
+    0% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0%;
+        z-index: -5;
+    }
+}
+
+.NavActive {
+    color: index.$secondary-color;
+}

@@ -1,0 +1,92 @@
+@use "../styles/index.scss";
+
+.Background {
+    min-height: 100vh;
+    background-color: index.$secondary-color;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+}
+
+.Content {
+    width: 25vw;
+    margin-top: 10vh;
+    border-radius: 20px;
+    border: 2px index.$secondary-color solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.Icon_Wrapper {
+    margin-top: 40px;
+    z-index: 1;
+    background-color: index.$secondary-color;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-sizing: content-box;
+    img {
+        width: 50px;
+        height: 50px;
+        -webkit-user-drag: none;
+    }
+}
+
+.title {
+    margin-top: 8px;
+    font-size: 2.2vw;
+    font-weight: 500;
+    opacity: 0.7;
+    color: index.$contrast-color;
+}
+
+.Input {
+    height: 50px;
+    margin: 20px 0px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+
+.Button {
+    height: 50px;
+    margin: 50px 0px;
+    width: 70%;
+    border-radius: 15px;
+    border: 2px index.$secondary-color solid;
+    background-color: transparent;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    p {
+        margin: 0px;
+        font-size: 1.5vw;
+        opacity: 0.7;
+        color: index.$secondary-color;
+        &:hover {
+            color: index.$primary-color;
+        }
+    }
+    &:hover {
+        transform: translateY(5px);
+        background-color: index.$secondary-color;
+        color: index.$primary-color;
+    }
+}
+
+.Button:hover p {
+    color: white;
+    opacity: 1;
+}
+
+.Form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+}

@@ -1,0 +1,32 @@
+@use "../../styles/index.scss";
+.Wrapper {
+    border: 1.5px index.$contrast-color solid;
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+    input {
+        background-color: transparent;
+        outline: transparent;
+        border: transparent;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        font-size: 1.25vw;
+        z-index: 1;
+        color: index.$contrast-color;
+        &:-webkit-autofill {
+            box-shadow: 0 0 0 1000px transparent inset;
+            background-color: transparent;
+            color: index.$contrast-color;
+        }
+        &:-webkit-autofill {
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: initial;
+            background-color: transparent !important;
+            color: index.$contrast-color;
+        }
+    }
+}
