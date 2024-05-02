@@ -37,11 +37,7 @@ export default function HeaderBar(props) {
     });
 
     if (status === "pending") {
-        return (
-            <>
-                <h1>Loading</h1>
-            </>
-        );
+        return <></>;
     }
     if (status === "success") {
         return (

@@ -15,9 +15,11 @@ export default function DepositPage() {
         event.preventDefault();
         if (!method) {
             toast.error("please select a method");
+            return;
         }
         if (!amount) {
             toast.error("please state an amount (USD)");
+            return;
         }
         try {
             const data = await axios.post(

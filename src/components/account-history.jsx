@@ -22,7 +22,6 @@ export default function Account_history() {
     });
 
     const transactions = data;
-
     if (status === "success") {
         return (
             <div className={history.content}>

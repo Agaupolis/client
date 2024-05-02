@@ -5,7 +5,6 @@ import money from "../assets/money.svg";
 import withdrawal from "../assets/withdrawal.svg";
 import EquityChart from "../components/EquityChart";
 import Account_history from "../components/account-history";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools"; // remove for production
 import { useCookies } from "react-cookie";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
@@ -49,7 +48,7 @@ export default function DashboardPage() {
                             image={deposit}
                         />
                         <StatsModule
-                            amount={data.netProfit}
+                            amount={data.equity}
                             label="Current Equity"
                             image={money}
                         />
@@ -69,7 +68,6 @@ export default function DashboardPage() {
                     </section>
                     <section className={page.Footer}></section>
                 </div>
-                <ReactQueryDevtools /> {/* remove for prduction */}
             </>
         );
     }

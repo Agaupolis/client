@@ -3,7 +3,8 @@ import HeaderBar from "../components/header";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import toast from "react-hot-toast";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools"; // remove for production
+import { Toaster } from "react-hot-toast";
 
 export default function Template({ children }) {
     const navigate = useNavigate();
@@ -18,6 +19,11 @@ export default function Template({ children }) {
         <div className={page.Background}>
             <HeaderBar />
             <div className={page.Content}>{children}</div>
+            <ReactQueryDevtools /> {/* remove for prduction */}
+            <Toaster
+                position="bottom-right"
+                toastOptions={{ duration: 3000 }}
+            />
         </div>
     );
 }
