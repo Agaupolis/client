@@ -21,108 +21,140 @@ export default function HeaderBar(props) {
         setSidebar(!sidebar);
     }
 
-    return (
-        <>
-            <div className={Header.Wrapper}>
-                <div className={Header.LeftElements}>
-                    <img src={Menu} onClick={OpenMenu} />
-                </div>
-                <div className="NavButtons">
-                    <ul>
-                        <li
-                            onClick={() => {
-                                navigate("/deposit", { replace: true });
-                            }}
-                            id="depositButton"
-                        >
-                            Deposit
-                        </li>
-                        <li
-                            onClick={() => {
-                                navigate("/", { replace: true });
-                            }}
-                            id="dashboardButton"
-                        >
-                            Dashboard
-                        </li>
-                        <li
-                            onClick={() => {
-                                navigate("/withdrawal", { replace: true });
-                            }}
-                            id="withdrawalButton"
-                        >
-                            Withdrawal
-                        </li>
-                    </ul>
-                </div>
-                <div className={Header.RightElements}>
-                    <img src={pfp} />
-                    <img src={bell} />
-                </div>
-            </div>
-            <div
-                className={sidebar ? "background-opened" : "background-closed"}
-            >
-                <div className={sidebar ? "nav-opened" : "nav-closed"}>
-                    <div className={SideMenu.Wrapper}>
-                        <img
-                            className={SideMenu.Close}
-                            src={close}
-                            onClick={OpenMenu}
-                        />
-                        <img className={SideMenu.pfp} src={profilePic} />
-                        <label className={SideMenu.Name}></label>
-                        <label className={SideMenu.role}></label>
-                        <div className={SideMenu.Nav1}>
-                            <label
-                                id="NavDashboard"
+    const { data, status, error } = useQuery({
+        queryKey: ["user"],
+        queryFn: async () => {
+            const response = await axios({
+                method: "get",
+                url: "/userData",
+                headers: {
+                    Authorization: "Bearer " + cookies.JWT,
+                },
+            });
+            return response.data;
+        },
+        staleTime: 1000 * 60,
+    });
+
+    if (status === "pending") {
+        return (
+            <>
+                <h1>Loading</h1>
+            </>
+        );
+    }
+    if (status === "success") {
+        return (
+            <>
+                <div className={Header.Wrapper}>
+                    <div className={Header.LeftElements}>
+                        <img src={Menu} onClick={OpenMenu} />
+                    </div>
+                    <div className="NavButtons">
+                        <ul>
+                            <li
                                 onClick={() => {
-                                    navigate("/", {
-                                        replace: true,
-                                    });
+                                    navigate("/deposit", { replace: true });
                                 }}
-                            >
-                                Dashboard
-                            </label>
-                            <label
-                                id="NavResearch"
-                                onClick={() => {
-                                    navigate("/Research", {
-                                        replace: true,
-                                    });
-                                }}
-                            >
-                                Research
-                            </label>
-                            <label
-                                id="NavDeposit"
-                                onClick={() => {
-                                    navigate("/Deposit", {
-                                        replace: true,
-                                    });
-                                }}
+                                id="depositButton"
                             >
                                 Deposit
-                            </label>
-                            <label
-                                id="NavWithdrawal"
+                            </li>
+                            <li
                                 onClick={() => {
-                                    navigate("/Withdrawal", {
+                                    navigate("/", { replace: true });
+                                }}
+                                id="dashboardButton"
+                            >
+                                Dashboard
+                            </li>
+                            <li
+                                onClick={() => {
+                                    navigate("/withdrawal", {
                                         replace: true,
                                     });
                                 }}
+                                id="withdrawalButton"
                             >
                                 Withdrawal
-                            </label>
-                        </div>
-                        <div className={SideMenu.Nav2}>
-                            <label>Contact</label>
-                            <label>Settings</label>
-                        </div>
-                        <label>#</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className={Header.RightElements}>
+                        <img src={pfp} />
+                        <img src={bell} />
                     </div>
                 </div>
-            </div>
-        </>
-    );
+                <div
+                    className={
+                        sidebar ? "background-opened" : "background-closed"
+                    }
+                >
+                    <div className={sidebar ? "nav-opened" : "nav-closed"}>
+                        <div className={SideMenu.Wrapper}>
+                            <img
+                                className={SideMenu.Close}
+                                src={close}
+                                onClick={OpenMenu}
+                            />
+                            <img className={SideMenu.pfp} src={profilePic} />
+                            <label className={SideMenu.Name}>
+                                {data.firstName} {data.lastName}
+                            </label>
+                            <label className={SideMenu.role}>
+                                {data.accountType} Account
+                            </label>
+                            <div className={SideMenu.Nav1}>
+                                <label
+                                    id="NavDashboard"
+                                    onClick={() => {
+                                        navigate("/", {
+                                            replace: true,
+                                        });
+                                    }}
+                                >
+                                    Dashboard
+                                </label>
+                                <label
+                                    id="NavResearch"
+                                    onClick={() => {
+                                        navigate("/Research", {
+                                            replace: true,
+                                        });
+                                    }}
+                                >
+                                    Research
+                                </label>
+                                <label
+                                    id="NavDeposit"
+                                    onClick={() => {
+                                        navigate("/Deposit", {
+                                            replace: true,
+                                        });
+                                    }}
+                                >
+                                    Deposit
+                                </label>
+                                <label
+                                    id="NavWithdrawal"
+                                    onClick={() => {
+                                        navigate("/Withdrawal", {
+                                            replace: true,
+                                        });
+                                    }}
+                                >
+                                    Withdrawal
+                                </label>
+                            </div>
+                            <div className={SideMenu.Nav2}>
+                                <label>Contact</label>
+                                <label>Settings</label>
+                            </div>
+                            <label>#</label>
+                        </div>
+                    </div>
+                </div>
+            </>
+        );
+    }
 }

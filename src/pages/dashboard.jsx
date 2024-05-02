@@ -3,16 +3,12 @@ import page from "../styles/dashboard.module.scss";
 import deposit from "../assets/deposit.svg";
 import money from "../assets/money.svg";
 import withdrawal from "../assets/withdrawal.svg";
-import Template from "./template";
 import EquityChart from "../components/EquityChart";
 import Account_history from "../components/account-history";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"; // remove for production
 import { useCookies } from "react-cookie";
-import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import toast from "react-hot-toast";
-import { useEffect } from "react";
 
 export default function DashboardPage() {
     const [cookies, setCookie] = useCookies(["name"]);
