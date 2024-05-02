@@ -1,5 +1,6 @@
 @use "../styles/index.scss";
 .Content {
+    max-width: 80vw;
     min-width: 80vw;
     padding-top: 8vh;
     display: flex;
