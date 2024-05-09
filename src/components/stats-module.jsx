@@ -10,7 +10,7 @@ export default function StatsModule(props) {
             </div>
             <div className={stats.Text_Wrapper}>
                 <label>{props.label}</label>
-                <h1>{props.amount}</h1>
+                <h1>{props.amount}$</h1>
             </div>
         </div>
     );

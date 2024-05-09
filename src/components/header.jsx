@@ -37,7 +37,7 @@ export default function HeaderBar(props) {
     });
 
     if (status === "pending") {
-        return <></>;
+        return <div className={Header.Wrapper}></div>;
     }
     if (status === "success") {
         return (

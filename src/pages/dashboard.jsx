@@ -34,35 +34,40 @@ export default function DashboardPage() {
                     <section className={page.Welcome}>
                         <div className={page.WelcomeText}>
                             <h1 className={page.WelcomeTexth1}>
-                                Welcome Back,
+                                Welcome Back, <span>{data.firstName}</span>
                             </h1>
-                            <h1 className={page.name}>{data.firstName}</h1>
                         </div>
                         <h1 className={page.missed}>Here's what you missed.</h1>
+                    </section>
+                    <section className={page.CurrentEquity}>
+                        <label>Current Equity</label>
+                        <h1>{data.equity.toLocaleString()}</h1>
                     </section>
                     <hr className={page.rounded} />
                     <section className={page.Stats}>
                         <StatsModule
-                            amount={data.totalDeposits}
+                            amount={data.totalDeposits.toLocaleString()}
                             label="total deposit"
                             image={deposit}
                         />
                         <StatsModule
-                            amount={data.equity}
+                            amount={data.equity.toLocaleString()}
                             label="Current Equity"
                             image={money}
                         />
                         <StatsModule
-                            amount={data.totalWithdrawals}
+                            amount={data.totalWithdrawals.toLocaleString()}
                             label="total withdrawals"
                             image={withdrawal}
                         />
                     </section>
-                    <h1 className={page.sectionHeaders}>Account Equity</h1>
+                    <h1 className={page.EquityHeaders}>Account Equity</h1>
                     <section className={page.EquityChart}>
                         <EquityChart />
                     </section>
-                    <h1 className={page.sectionHeaders}>Transaction History</h1>
+                    <h1 className={page.TransactionsHeaders}>
+                        Transaction History
+                    </h1>
                     <section className={page.History}>
                         <Account_history />
                     </section>

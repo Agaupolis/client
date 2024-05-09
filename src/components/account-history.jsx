@@ -1,4 +1,3 @@
-import React, { useRef } from "react";
 import history from "./styles/account-history.module.scss";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";

@@ -44,3 +44,12 @@ $diameter: 60px;
         color: index.$contrast-color;
     }
 }
+
+@media screen and (max-width: 700px) {
+    .Text_Wrapper {
+        width: 180px;
+    }
+    .Wrapper {
+        margin: 10px 0px;
+    }
+}

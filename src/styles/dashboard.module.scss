@@ -19,23 +19,25 @@
             margin: 0px 8px;
             opacity: 0.8;
             font-weight: 500;
-            font-size: 2.5em;
-            color: index.$contrast-color;
-        }
-        .name {
-            font-weight: 500;
-            font-size: 2.5em;
-            color: index.$secondary-color;
-            opacity: 1;
+            font-size: 2.25vw;
+            color: index.$contrast-color8;
+            span {
+                color: index.$secondary-color;
+            }
         }
     }
     .missed {
         margin: 0px;
         font-weight: 500;
-        font-size: 2.25rem;
+        font-size: 2vw;
         opacity: 0.9;
-        color: index.$contrast-color;
+        color: index.$contrast-color7;
     }
+}
+
+.CurrentEquity {
+    text-align: center;
+    display: none;
 }
 
 .Stats {
@@ -67,9 +69,36 @@
     margin-bottom: 50px;
 }
 
-.sectionHeaders {
+.EquityHeaders {
     margin-top: 5vh;
     font-size: 2.25em;
     font-weight: 500;
     color: index.$contrast-color;
+}
+.TransactionsHeaders {
+    margin-top: 5vh;
+    font-size: 2.25em;
+    font-weight: 500;
+    color: index.$contrast-color;
+}
+
+@media screen and (max-width: 700px) {
+    .Stats {
+        justify-content: center;
+    }
+    .Welcome {
+        display: none;
+    }
+    .EquityChart {
+        display: none;
+    }
+    .CurrentEquity {
+        display: block;
+    }
+    .EquityHeaders {
+        display: none;
+    }
+    .TransactionsHeaders {
+        display: none;
+    }
 }
