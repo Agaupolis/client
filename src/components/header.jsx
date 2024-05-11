@@ -5,44 +5,49 @@ import profilePic from "../assets/pfp.webp";
 import bell from "../assets/bell.svg";
 import close from "../assets/X.svg";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./styles/buttonStyle.scss";
 import SideMenu from "./styles/menu.module.scss";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { useCookies } from "react-cookie";
 
-export default function HeaderBar(props) {
+export default function HeaderBar() {
     const navigate = useNavigate();
     const [sidebar, setSidebar] = useState(false);
     const [cookies, setCookie] = useCookies(["name"]);
 
+    // update Menu State
     function OpenMenu() {
         setSidebar(!sidebar);
     }
 
-    const { data, status, error } = useQuery({
-        queryKey: ["user"],
-        queryFn: async () => {
-            const response = await axios({
-                method: "get",
-                url: "/userData",
-                headers: {
-                    Authorization: "Bearer " + cookies.JWT,
-                },
-            });
-            return response.data;
-        },
-        staleTime: 1000 * 60,
-    });
+    // Get UserData
+    //const { data, status, error, isLoading } = useQuery({
+    //    queryKey: ["user"],
+    //    queryFn: async () => {
+    //        const response = await axios({
+    //            method: "get",
+    //            url: "/userData",
+    //            headers: {
+    //                Authorization: "Bearer " + cookies.JWT,
+    //            },
+    //        });
+    //        return response.data;
+    //    },
+    //    staleTime: 1000 * 60,
+    //});
 
-    if (status === "pending") {
-        return <div className={Header.Wrapper}></div>;
-    }
-    if (status === "success") {
-        return (
-            <>
-                <div className={Header.Wrapper}>
+    //if (error) {
+    //    console.log("Error Fetching Data: ");
+    //    console.log(error);
+    //}
+
+    // Return Header internal components on condition
+    function HeaderComponents() {
+        if (cookies.JWT) {
+            return (
+                <>
                     <div className={Header.LeftElements}>
                         <img src={Menu} onClick={OpenMenu} />
                     </div>
@@ -50,7 +55,9 @@ export default function HeaderBar(props) {
                         <ul>
                             <li
                                 onClick={() => {
-                                    navigate("/deposit", { replace: true });
+                                    navigate("/deposit", {
+                                        replace: true,
+                                    });
                                 }}
                                 id="depositButton"
                             >
@@ -58,7 +65,9 @@ export default function HeaderBar(props) {
                             </li>
                             <li
                                 onClick={() => {
-                                    navigate("/", { replace: true });
+                                    navigate("/", {
+                                        replace: true,
+                                    });
                                 }}
                                 id="dashboardButton"
                             >
@@ -80,7 +89,15 @@ export default function HeaderBar(props) {
                         <img src={pfp} />
                         <img src={bell} />
                     </div>
-                </div>
+                </>
+            );
+        }
+    }
+
+    // Return Sidebar on condition
+    function SideBar() {
+        if (cookies.JWT) {
+            return (
                 <div
                     className={
                         sidebar ? "background-opened" : "background-closed"
@@ -150,7 +167,14 @@ export default function HeaderBar(props) {
                         </div>
                     </div>
                 </div>
-            </>
-        );
+            );
+        }
     }
+
+    return (
+        <>
+            <div className={Header.Wrapper}>{HeaderComponents()}</div>
+            {/*SideBar()*/}
+        </>
+    );
 }

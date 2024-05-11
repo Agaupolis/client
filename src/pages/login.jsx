@@ -15,6 +15,7 @@ export default function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    // Handle Submit Function
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -22,6 +23,12 @@ export default function LoginPage() {
                 email,
                 password,
             });
+
+            if (!data) {
+                console.error("No data returned from login");
+                return;
+            }
+
             if (data.error) {
                 toast.error(data.error);
             }
@@ -34,6 +41,8 @@ export default function LoginPage() {
             console.error(error);
         }
     };
+
+    // Render
     return (
         <div className={Login.Content}>
             <div className={Login.Icon_Wrapper}>

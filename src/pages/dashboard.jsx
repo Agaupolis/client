@@ -12,22 +12,43 @@ import axios from "axios";
 export default function DashboardPage() {
     const [cookies, setCookie] = useCookies(["name"]);
 
-    const { data, status, error } = useQuery({
+    // Fetch Data
+    const { data, status, error, isLoading } = useQuery({
         queryKey: ["user"],
         queryFn: async () => {
-            const response = await axios({
-                method: "get",
-                url: "/userData",
-                headers: {
-                    Authorization: "Bearer " + cookies.JWT,
-                },
-            });
-            return response.data;
+            //Log Token
+            console.log(cookies.JWT);
+
+            try {
+                // Axios Fetching
+                const response = await axios({
+                    method: "get",
+                    url: "/userData",
+                    headers: {
+                        Authorization: "Bearer " + cookies.JWT,
+                    },
+                });
+                // Return Data
+                return response.data;
+            } catch (error) {
+                console.log(error);
+            }
         },
         staleTime: 1000 * 60,
     });
 
-    if (status === "success") {
+    console.log(data);
+
+    // Loading
+    if (isLoading || status == "pending") {
+        return <h1>Loading</h1>;
+    }
+
+    if (error) {
+        console.log(error);
+    }
+
+    if (!isLoading && status == "success") {
         return (
             <>
                 <div className={page.Content}>
@@ -41,7 +62,7 @@ export default function DashboardPage() {
                     </section>
                     <section className={page.CurrentEquity}>
                         <label>Current Equity</label>
-                        <h1>{data.equity.toLocaleString()}</h1>
+                        <h1>{data.equity}</h1>
                     </section>
                     <hr className={page.rounded} />
                     <section className={page.Stats}>
