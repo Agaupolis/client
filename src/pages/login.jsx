@@ -34,6 +34,7 @@ export default function LoginPage() {
             }
             if (data.status == "Logged In" && data.token) {
                 toast.success(data.status);
+
                 setCookie("JWT", data.token);
                 navigate("/", { replace: true });
             }
